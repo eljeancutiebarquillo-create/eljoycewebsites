@@ -6,33 +6,32 @@
   <title>WV2 Condotel Luxury — Iloilo City</title>
   <meta name="description" content="WV2 Condotel Luxury — Best hotel in Iloilo City. Elegant stays, skyline views, & premium amenities." />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --pink:#ff6fb3;
       --purple:#6f3ccf;
       --violet:#9b59ff;
-      --bg-grad: linear-gradient(160deg, rgba(255,111,179,0.06), rgba(111,60,207,0.04));
-      --card: rgba(255,255,255,0.95);
-      --glass: rgba(255,255,255,0.7);
+      --card: rgba(255,255,255,0.98);
       --maxw:1100px;
-      --radius:14px;
+      --radius:12px;
+      --text:#2b1450;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,Arial;
       background:linear-gradient(180deg,#fffafc 0%, #fff7ff 100%);
-      color:#2b1450;
+      color:var(--text);
+      line-height:1.5;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
     }
 
-    /* header hero with hotel image */
-    header.hero {
+    /* ---------- header / hero ---------- */
+    header.hero{
       width:100%;
-      height:420px;
+      min-height:360px;
       background-image:
         linear-gradient(180deg, rgba(111,60,207,0.36), rgba(255,111,179,0.18)),
         url('hotel6.jpg');
@@ -48,58 +47,88 @@
       margin:0 auto;
       width:100%;
       display:flex;
-      justify-content:space-between;
       gap:18px;
-      align-items:end;
-    }
-    .brand {
-      display:flex;gap:12px;align-items:center;
+      align-items:flex-end;
+      justify-content:space-between;
     }
     .logo{
-      width:84px;height:84px;border-radius:12px;
+      width:84px;height:84px;border-radius:14px;
       background:linear-gradient(135deg,var(--pink),var(--purple));
       display:grid;place-items:center;font-weight:800;font-size:20px;color:white;
       box-shadow: 0 12px 30px rgba(111,60,207,0.18);
+      flex-shrink:0;
     }
-    .hero-text{
-      max-width:700px;
-    }
-    .hero-text h1{margin:0 0 6px;font-size:28px;letter-spacing:0.2px}
-    .hero-text p{margin:0 0 8px;opacity:0.95}
 
-    .cta-btn{
-      background: linear-gradient(90deg,var(--pink),var(--violet));
-      border:0;color:white;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;
-      box-shadow:0 12px 30px rgba(155,89,255,0.12);
+    .hero-text{
+      flex:1;
+      max-width:820px;
+    }
+    .hotel-name{
+      display:inline-block;
+      font-weight:800;
+      font-size:30px;
+      line-height:1.05;
+      margin:0 0 8px;
+      /* gradient text */
+      background:linear-gradient(90deg,var(--pink),var(--violet));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow: 0 6px 18px rgba(111,60,207,0.35);
+    }
+
+    .hero-sub{
+      margin:0 0 12px;color:#fff;opacity:0.95;font-size:16px;
+      text-shadow:1px 1px 6px rgba(0,0,0,0.45);
+    }
+
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:10px 16px;border-radius:12px;border:0;font-weight:700;
+      cursor:pointer;text-decoration:none;color:white;
+      background:linear-gradient(90deg,var(--pink),var(--violet));
+      box-shadow:0 10px 28px rgba(155,89,255,0.12);
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,0.14);
+      color:white;border:1px solid rgba(255,255,255,0.14);
+      padding:10px 14px;border-radius:10px;
     }
 
     nav.topnav{
-      position:sticky;top:0;z-index:40;background:transparent;padding:10px 20px;
-      max-width:var(--maxw);margin:-56px auto 0;display:flex;justify-content:flex-end;gap:12px;
+      margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;
     }
-    nav.topnav a{color:white;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:10px;background:rgba(0,0,0,0.22)}
+    nav.topnav a{
+      background:rgba(0,0,0,0.22);color:white;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700;
+    }
 
-    main {
+    /* -------- main layout -------- */
+    main{
       max-width:var(--maxw);
       margin:20px auto;
-      padding:0 20px 80px;
+      padding:0 20px 60px;
       display:grid;
       grid-template-columns: 2fr 1fr;
       gap:20px;
+      align-items:start;
+      justify-items:start; /* left align content cells */
     }
+
+    /* Put left column content stack aligned left */
+    .left-col{width:100%;}
 
     .card{
       background:var(--card);
-      border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(111,60,207,0.06);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 10px 30px rgba(111,60,207,0.06);
+      margin-bottom:14px;
     }
-    h2{color:var(--purple);margin:0 0 10px}
+
+    h2{color:var(--purple);margin:0 0 10px;font-size:20px}
     p.lead{color:#4a2b70;margin:0 0 12px}
 
     .feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
-    .feature{
-      background:linear-gradient(135deg, rgba(255,111,179,0.06), rgba(155,89,255,0.04));
-      padding:10px;border-radius:10px;font-weight:700;color:#4c2a6d;
-    }
+    .feature{background:linear-gradient(135deg, rgba(255,111,179,0.06), rgba(155,89,255,0.04));padding:10px;border-radius:10px;font-weight:700;color:#4c2a6d;}
 
     /* gallery */
     .gallery{
@@ -110,114 +139,99 @@
     }
     .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block}
 
-    /* right column */
-    aside{position:sticky;top:96px;align-self:start}
-    .booking .row{display:flex;gap:8px;margin-bottom:8px}
-    .booking input[type="text"], .booking input[type="email"], .booking input[type="date"], .booking select, .booking textarea{
-      width:100%;padding:10px;border-radius:8px;border:1px solid #eee;
+    /* booking / aside */
+    aside{position:sticky;top:96px;align-self:start;width:100%}
+    .booking input, .booking select, .booking textarea{
+      width:100%;padding:10px;border-radius:8px;border:1px solid #eee;margin-top:6px;
     }
-    .booking button{width:100%;padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--pink),var(--purple));color:white;font-weight:700}
+    .booking button{width:100%;padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--pink),var(--purple));color:white;font-weight:700;margin-top:12px}
 
-    /* video */
+    /* small matching card for See Gallery CTA inside hero region */
+    .see-gallery-card{
+      display:inline-block;
+      margin-top:12px;
+      background:var(--card);
+      padding:10px 14px;border-radius:12px;
+      box-shadow:0 8px 20px rgba(111,60,207,0.06);
+      color:var(--purple);
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    /* video wrapper */
     .video-wrap{margin-top:12px;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(111,60,207,0.06)}
 
     /* reasons */
     .reasons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-    .reason{background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,250,255,0.96));padding:12px;border-radius:10px;border:1px solid rgba(155,89,255,0.06)}
+    .reason{background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,250,255,0.98));padding:12px;border-radius:10px;border:1px solid rgba(155,89,255,0.06)}
 
-    /* footer */
     footer{max-width:var(--maxw);margin:24px auto;padding:18px 20px;text-align:center;color:#6a3cb0}
 
+    /* responsive tweaks */
     @media (max-width:1000px){
       main{grid-template-columns:1fr}
       .gallery{grid-template-columns:repeat(2,1fr)}
       .reasons{grid-template-columns:1fr}
-      nav.topnav{justify-content:center}
-      header.hero{height:360px}
+      aside{position:relative;top:auto}
+      header.hero{min-height:360px}
     }
-    @media (max-width:480px){
-      .gallery img{height:120px}
+    @media (max-width:600px){
+      header.hero{padding:36px 16px}
+      .hero-inner{flex-direction:column;align-items:flex-start;gap:12px}
       .logo{width:64px;height:64px;font-size:16px}
-      .hero-text h1{font-size:20px}
+      .hotel-name{font-size:22px}
+      .gallery img{height:120px}
+      .feature-list{grid-template-columns:1fr}
     }
+
+    /* small accessibility focus styles */
+    a:focus, button:focus, input:focus, select:focus {outline:3px solid rgba(111,60,207,0.18);outline-offset:2px}
   </style>
 </head>
 <body>
 
-  <!-- HERO HEADER -->
-  <header class="hero">
-    <div class="logo">WV2</div>
-
+  <!-- HERO -->
+  <header class="hero" role="banner">
     <div class="hero-inner">
-      <div class="hero-text">
-        <h1 style="color:#fff; text-shadow: 2px 2px 8px rgba(111,60,207,0.9), 0 0 20px rgba(255,111,179,0.8);">
-          <span style="background: linear-gradient(90deg, #ff6fb3, #9b59ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            WV2 Condotel Luxury
-          </span>
-          — Your refined escape in Iloilo City
-        </h1>
+      <div style="display:flex;gap:16px;align-items:center">
+        <div class="logo" aria-hidden="true">WV2</div>
+        <div class="hero-text">
+          <div class="hotel-name">WV2 Condotel Luxury</div>
+          <p class="hero-sub">Your refined escape in Iloilo City — rooftop views, comfy suites, and thoughtful service.</p>
 
-        <p style="color:#fff; text-shadow:1px 1px 6px rgba(0,0,0,0.4); font-size:16px; max-width:640px;">
-          Wake up to panoramic views, unwind by the rooftop pool, and enjoy thoughtfully-crafted spaces designed for comfort, convenience, and memorable stays.
-        </p>
+          <div class="hero-actions" aria-hidden="false">
+            <a href="#bookNow" class="btn">Book a Stay</a>
+            <!-- See Gallery styled as a card to match other cards -->
+            <a href="#gallery" class="see-gallery-card" title="See Gallery">See Gallery</a>
+          </div>
 
-        <div class="hero-links" style="display:flex; flex-wrap:wrap; gap:10px;">
-          <button class="cta-btn" id="bookBtn">Book a Stay</button>
-          <a href="#gallery">See Gallery</a>
+          <nav class="topnav" aria-label="Main navigation">
+            <a href="#about">About</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#video">Video</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
-
-        <nav class="topnav" style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
-          <a href="#about" style="background:rgba(255,111,179,0.9);">About</a>
-          <a href="#rooms" style="background:rgba(155,89,255,0.9);">Rooms</a>
-          <a href="#video" style="background:rgba(255,111,179,0.9);">Video</a>
-          <a href="#contact" style="background:rgba(155,89,255,0.9);">Contact</a>
-        </nav>
       </div>
     </div>
   </header>
 
-  <style>
-    @media (max-width: 768px) {
-      .hero {
-        height: auto;
-        padding: 60px 20px;
-        text-align: left;
-      }
-      .hero-text h1 {
-        font-size: 24px !important;
-      }
-      .hero-text p {
-        font-size: 14px !important;
-      }
-      .hero-links, .topnav {
-        justify-content: flex-start !important;
-      }
-    }
-  </style>
-
-    <!-- left content -->
-    <div>
-      <!-- About - longer attractive description -->
+  <!-- MAIN -->
+  <main role="main">
+    <!-- LEFT COLUMN (primary content aligned left) -->
+    <div class="left-col">
       <section class="card" id="about" aria-labelledby="aboutTitle">
         <h2 id="aboutTitle">About WV2 Condotel Luxury</h2>
         <p class="lead">
           Welcome to <strong>WV2 Condotel Luxury</strong> — where contemporary design meets warm Filipino hospitality.
           Nestled in a prime Iloilo City location, WV2 is more than a place to stay; it's a destination crafted for
-          travelers who value comfort, convenience, and curated experiences. Our suites combine elegant interiors,
-          thoughtful amenities, and sweeping views that showcase the charm of Iloilo.
+          travelers who value comfort, convenience, and curated experiences.
         </p>
 
         <p>
           Whether you're here for business or leisure, WV2 offers an environment designed to help you recharge and
           reconnect. Start your morning with a complimentary gourmet breakfast, sip signature cocktails at the SkyView Bar,
-          or cool off at our rooftop infinity pool while watching the sunset over the city skyline. For guests who need to
-          stay productive, we provide high-speed Wi-Fi, dedicated workspaces in select suites, and a quiet executive lounge.
-        </p>
-
-        <p>
-          Families will appreciate our safe and fun children’s play area, while couples can book intimate spa treatments
-          and private dining experiences. Our friendly, 24/7 concierge team is ready to assist with reservations, local
-          recommendations, airport transfers, and customized experiences — because at WV2 we believe luxury is in the details.
+          or cool off at our rooftop infinity pool while watching the sunset over the city skyline.
         </p>
 
         <div style="margin-top:14px">
@@ -235,37 +249,9 @@
         </div>
       </section>
 
-      <!-- Why Book / Reasons -->
-      <section class="card" style="margin-top:14px" aria-labelledby="whyTitle">
-        <h2 id="whyTitle">Why Book With Us?</h2>
-
-        <div class="reasons">
-          <div class="reason">
-            <h4 style="margin:0 0 6px;color:#5b2a74">Unbeatable Location</h4>
-            <p style="margin:0">Located close to Iloilo’s major attractions, shopping centers, and key business hubs — save time traveling and make the most of your visit.</p>
-          </div>
-
-          <div class="reason">
-            <h4 style="margin:0 0 6px;color:#5b2a74">Thoughtful Comfort</h4>
-            <p style="margin:0">Each suite is appointed with high-quality linens, modern appliances, and a private balcony on select rooms for relaxed mornings and quiet evenings.</p>
-          </div>
-
-          <div class="reason">
-            <h4 style="margin:0 0 6px;color:#5b2a74">Family & Pet-Friendly Options</h4>
-            <p style="margin:0">Safe play areas, spacious family suites, and flexible arrangements make WV2 a natural choice for family getaways.</p>
-          </div>
-
-          <div class="reason">
-            <h4 style="margin:0 0 6px;color:#5b2a74">Exceptional Service</h4>
-            <p style="margin:0">Our dedicated team provides warm and efficient service — from arrival to departure — so every stay feels effortless.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Rooms -->
-      <section class="card" id="rooms" style="margin-top:14px">
-        <h2>Rooms & Sample Rates</h2>
-        <p class="lead">Comfort-forward rooms and suites designed to meet the needs of solo travelers, couples, and families.</p>
+      <section class="card" id="rooms" aria-labelledby="roomsTitle">
+        <h2 id="roomsTitle">Rooms & Sample Rates</h2>
+        <p class="lead">Comfort-forward rooms and suites designed for solo travelers, couples, and families.</p>
 
         <div style="display:grid;gap:12px;margin-top:12px">
           <div style="display:flex;gap:12px;align-items:center">
@@ -297,11 +283,9 @@
         </div>
       </section>
 
-      <!-- Gallery -->
-      <section class="card" id="gallery" style="margin-top:14px">
-        <h2>Gallery</h2>
+      <section class="card" id="gallery" aria-labelledby="galleryTitle">
+        <h2 id="galleryTitle">Gallery</h2>
         <p class="lead">Real photos of WV2 Condotel — explore the spaces you'll enjoy during your stay.</p>
-
         <div class="gallery" aria-label="hotel gallery">
           <img src="hotel1.jpg" alt="Room interior">
           <img src="hotel2.jpg" alt="Balcony view">
@@ -312,98 +296,74 @@
         </div>
       </section>
 
-      <!-- Video -->
-      <section class="card" id="video" style="margin-top:14px">
-        <h2>Video Tour</h2>
+      <section class="card" id="video" aria-labelledby="videoTitle">
+        <h2 id="videoTitle">Video Tour</h2>
         <p class="lead">Take a quick video tour to see what WV2 Condotel Luxury has to offer.</p>
-
-        <div class="video-wrap" aria-hidden="false" style="aspect-ratio:16/9">
-          <!-- Embedded YouTube iframe provided by user -->
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fJBdo1dmbs8" title="Rent to Own Condo in Iloilo | WV Towers READY FOR OCCUPANCY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video-wrap" style="aspect-ratio:16/9">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/fJBdo1dmbs8" title="WV Towers Iloilo Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
+      </section>
+
+      <section class="card" id="reviews" aria-labelledby="reviewsTitle">
+        <h2 id="reviewsTitle">Guest Reviews</h2>
+        <p style="margin:0 0 6px;font-weight:800;color:#6a3cb0">★ ★ ★ ★ ☆</p>
+        <p style="margin:0">"Lovely stay — clean rooms, friendly staff, and an amazing rooftop pool." — Maria</p>
       </section>
     </div>
 
-    <!-- right column -->
+    <!-- RIGHT COLUMN (booking + contact + map) -->
     <aside>
-      <!-- Quick Booking -->
-      <section class="card booking" aria-labelledby="bookNow">
-        <h2 id="bookNow">Quick Booking</h2>
+      <section class="card booking" id="bookNow" aria-labelledby="bookNowTitle">
+        <h2 id="bookNowTitle">Quick Booking</h2>
         <p class="lead">Reserve now — secure your preferred dates. (Demo stores bookings locally.)</p>
 
-        <div style="margin-top:8px">
-          <label style="font-weight:700">Check-in</label>
-          <input type="date" id="checkin">
-        </div>
+        <label style="font-weight:700">Check-in</label>
+        <input type="date" id="checkin">
 
-        <div style="margin-top:8px">
-          <label style="font-weight:700">Check-out</label>
-          <input type="date" id="checkout">
-        </div>
+        <label style="font-weight:700;display:block;margin-top:8px">Check-out</label>
+        <input type="date" id="checkout">
 
-        <div style="margin-top:8px">
-          <label style="font-weight:700">Guests</label>
-          <select id="guests">
-            <option>1</option><option>2</option><option>3</option><option>4</option>
-          </select>
-        </div>
+        <label style="font-weight:700;display:block;margin-top:8px">Guests</label>
+        <select id="guests">
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+        </select>
 
-        <div style="margin-top:8px">
-          <label style="font-weight:700">Name</label>
-          <input type="text" id="bkname" placeholder="Full name">
-        </div>
+        <label style="font-weight:700;display:block;margin-top:8px">Name</label>
+        <input type="text" id="bkname" placeholder="Full name">
 
-        <div style="margin-top:8px">
-          <label style="font-weight:700">Email</label>
-          <input type="email" id="bkemail" placeholder="you@example.com">
-        </div>
+        <label style="font-weight:700;display:block;margin-top:8px">Email</label>
+        <input type="email" id="bkemail" placeholder="you@example.com">
 
-        <div style="margin-top:12px">
-          <button id="bookNowBtn">Confirm Booking</button>
-        </div>
-
+        <button id="bookNowBtn" type="button">Confirm Booking</button>
         <div id="bookMsg" style="margin-top:12px;color:#5b2a74;font-weight:700"></div>
       </section>
 
-      <!-- Contact & Map placeholder -->
-      <section class="card" style="margin-top:14px" id="contact">
-        <h2>Contact & Location</h2>
+      <section class="card" id="contactSection" aria-labelledby="contactTitle">
+        <h2 id="contactTitle">Contact & Location</h2>
         <p class="lead">Find us, call, or email — we’ll help plan your perfect stay.</p>
 
         <p style="margin:6px 0"><strong>Address:</strong> Diversion Rd, Iloilo City</p>
         <p style="margin:6px 0"><strong>Phone:</strong> +63 912 345 6789</p>
-        <p style="margin:6px 0"><strong>Email:</strong> reservations@wv2-condotel.ph/barquilloeljoyce@gmail.com</p>
+        <p style="margin:6px 0"><strong>Email:</strong> reservations@wv2-condotel.ph</p>
 
         <div style="margin-top:12px;border-radius:10px;overflow:hidden">
-          <!-- For a working map, replace the div with an iframe from Google Maps embed -->
-          <section class="card" id="contact" style="margin-top:20px">
-        <h2>Find Us</h2>
-        <p class="lead">WV2 Condotel Luxury, Iloilo City — located near major establishments and tourist destinations.</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.065348228952!2d122.54138427571217!3d10.720215061945224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aefaa8ab1f2f67%3A0xe4097e27b4587a!2sWV%20Towers%20Iloilo!5e0!3m2!1sen!2sph!4v1739932394112!5m2!1sen!2sph"
-          width="100%" height="250" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </section>
-    </aside>
-  </main>
-          </div>
+          <!-- Google Maps embed (WV Towers / WV2 area - Iloilo City) -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.065348228952!2d122.54138427571217!3d10.720215061945224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aefaa8ab1f2f67%3A0xe4097e27b4587a!2sWV%20Towers%20Iloilo!5e0!3m2!1sen!2sph!4v1739932394112!5m2!1sen!2sph"
+            width="100%" height="240" style="border:0;border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </section>
-
-      <!-- Reviews -->
-      <section class="card" style="margin-top:14px">
-        <h2>Guest Reviews</h2>
-        <p style="margin:0 0 6px;font-weight:800;color:#6a3cb0">★ ★ ★ ★ ☆</p>
-        <p style="margin:0">"Lovely stay — clean rooms, friendly staff, and an amazing rooftop pool." — Maria</p>
-      </section>
     </aside>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div style="max-width:var(--maxw);margin:0 auto;padding:10px 20px">
       © <span id="year"></span> WV2 Condotel Luxury • Iloilo City — Designed with care.
     </div>
   </footer>
 
-  <!-- Simple modal booking for details (hidden by default) -->
+  <!-- Booking modal -->
   <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(10,7,20,0.45);z-index:250;align-items:center;justify-content:center">
     <div style="background:white;padding:18px;border-radius:12px;max-width:520px;width:92%">
       <div style="display:flex;justify-content:space-between;align-items:center">
@@ -415,17 +375,10 @@
   </div>
 
   <script>
-    // year
+    // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Open booking modal from header CTA
-    document.getElementById('openBookingBtn').addEventListener('click', ()=>{
-      window.scrollTo({top:0,behavior:'smooth'});
-      // focus checkin
-      document.getElementById('checkin').focus();
-    });
-
-    // Booking logic (client-side demo)
+    // booking logic
     const bookBtn = document.getElementById('bookNowBtn');
     const msg = document.getElementById('bookMsg');
     const modal = document.getElementById('bookingModal');
@@ -482,13 +435,10 @@
     // allow closing modal by clicking outside
     modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none' });
 
-    // preload images (optional)
+    // optional: preload gallery images to avoid flicker
     ['hotel1.jpg','hotel2.jpg','hotel3.jpg','hotel4.jpg','hotel5.jpg','hotel6.jpg'].forEach(src=>{
       const img = new Image(); img.src = src;
     });
   </script>
 </body>
 </html>
-
-
-
