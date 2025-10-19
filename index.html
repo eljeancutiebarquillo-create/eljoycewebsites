@@ -144,32 +144,57 @@
 </head>
 <body>
 
-  <!-- Header with hotel image -->
-  <header class="hero" role="banner" aria-label="WV2 Condotel Luxury hero image">
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="logo">WV2</div>
+
     <div class="hero-inner">
-      <div class="brand" aria-hidden="true">
-        <div class="logo">WV2</div>
-      </div>
-
       <div class="hero-text">
-        <h1>WV2 Condotel Luxury — Your refined escape in Iloilo City</h1>
-        <p>Wake up to panoramic views, unwind by the rooftop pool, and enjoy thoughtfully-crafted spaces designed for comfort, convenience, and memorable stays.</p>
-        <div style="display:flex;gap:10px;margin-top:8px">
-          <button class="cta-btn" id="openBookingBtn">Book a Stay</button>
-          <a href="#gallery" style="background:rgba(255,255,255,0.9);padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--purple);font-weight:700">See Gallery</a>
-        </div>
-      </div>
+        <h1 style="color:#fff; text-shadow: 2px 2px 8px rgba(111,60,207,0.9), 0 0 20px rgba(255,111,179,0.8);">
+          <span style="background: linear-gradient(90deg, #ff6fb3, #9b59ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            WV2 Condotel Luxury
+          </span>
+          — Your refined escape in Iloilo City
+        </h1>
 
-      <nav class="topnav" aria-label="header links">
-        <a href="#about">About</a>
-        <a href="#rooms">Rooms</a>
-        <a href="#video">Video</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <p style="color:#fff; text-shadow:1px 1px 6px rgba(0,0,0,0.4); font-size:16px; max-width:640px;">
+          Wake up to panoramic views, unwind by the rooftop pool, and enjoy thoughtfully-crafted spaces designed for comfort, convenience, and memorable stays.
+        </p>
+
+        <div class="hero-links" style="display:flex; flex-wrap:wrap; gap:10px;">
+          <button class="cta-btn" id="bookBtn">Book a Stay</button>
+          <a href="#gallery">See Gallery</a>
+        </div>
+
+        <nav class="topnav" style="margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;">
+          <a href="#about" style="background:rgba(255,111,179,0.9);">About</a>
+          <a href="#rooms" style="background:rgba(155,89,255,0.9);">Rooms</a>
+          <a href="#video" style="background:rgba(255,111,179,0.9);">Video</a>
+          <a href="#contact" style="background:rgba(155,89,255,0.9);">Contact</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <main>
+  <style>
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding: 60px 20px;
+        text-align: left;
+      }
+      .hero-text h1 {
+        font-size: 24px !important;
+      }
+      .hero-text p {
+        font-size: 14px !important;
+      }
+      .hero-links, .topnav {
+        justify-content: flex-start !important;
+      }
+    }
+  </style>
+
     <!-- left content -->
     <div>
       <!-- About - longer attractive description -->
@@ -458,4 +483,5 @@
   </script>
 </body>
 </html>
+
 
